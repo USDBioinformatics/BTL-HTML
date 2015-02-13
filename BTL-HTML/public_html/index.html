@@ -16,11 +16,14 @@ and open the template in the editor.
     <body>
         <!-- START MAIN CONTAINER-->
         <div class="container-fluid"> <!-- START MAIN CONTAINER-->
-            <div id="notificationBar" class="row"></div>
-            <div id="tools">
-
+            <div class="row">
+                <a class="btn btn-large btn-success" data-url="http://localhost:8080/BTL-REST/resources/tools/names" id="allNames">Get All Tool Names</a>
+                <a class="btn btn-large btn-success" data-url="http://localhost:8080/BTL-REST/resources/tools/bets" id="allBets">Get All Tool BETS</a>
+                <a class="btn btn-large btn-success" data-url="http://localhost:8080/BTL-REST/resources/bridges/count" id="allBridges">Get Bridge Count</a>
             </div>
-        <!-- END MAIN CONTAINER -->
+            <div id="notificationBar" class="row"></div>
+            <div id="tools"></div>
+            <!-- END MAIN CONTAINER -->
         </div> 
 
 
