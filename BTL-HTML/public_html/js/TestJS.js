@@ -1,3 +1,4 @@
+
 $.ajax({
     url: 'http://localhost:8080/BTL-REST/resources/tools/names',
     type: 'GET',
@@ -10,6 +11,5 @@ $.ajax({
             var tool_div_row = "<div class='toolRow'>" + "<h2>" + f + "</h2>" + "</div>";
             $(tool_div_row).appendTo("#tools");
         });
-    }
-});
+
 
