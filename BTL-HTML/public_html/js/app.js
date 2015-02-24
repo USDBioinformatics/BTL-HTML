@@ -1,3 +1,3 @@
-angular.module('btlApp', ['ngResource', 'btlApp.controllers', 'btlApp.services']); //btlApp is our main module
+angular.module('btlApp', ['ngResource', 'btlApp.services', 'btlApp.controllers']); //btlApp is our main module
 
 
