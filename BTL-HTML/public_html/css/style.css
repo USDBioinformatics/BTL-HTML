@@ -22,3 +22,33 @@ and open the template in the editor.
 .toolRow{
     border:2px solid black;
 }
+
+#toolListCtr{
+    border: 1px solid red;
+}
+
+#toolListCtr ul{
+    list-style-type: none;
+}
+
+#toolListCtr h1{
+    background-color: red;
+    padding:5px;
+}
+
+#toolDetailsCtr{
+    border: 1px solid red;
+}
+
+#toolDetailsCtr h1{
+    background-color: red;
+    padding:5px;
+}
+
+
+.tool p{
+    background-color:#101010;
+    color:white;
+    padding:3px;
+    font-size:24px;
+}

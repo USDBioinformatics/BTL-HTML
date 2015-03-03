@@ -51,34 +51,47 @@ ANGULAR FRONT END VIEW OF BTL
 
         <!-- BEGIN MAIN CONTENT -->
         <div class="container">
+            <!--TOOL COUNT ROW -->
+            <div class="row" >
+                <div class="col-md-12" ng-controller="ToolCountController">
+                    <h1>Count: {{count}}</h1>
+                </div>
+            </div>
+
+
             <div class="row">
                 <div class="col-md-12">
                     <h1>Bioinformatics Tool Library</h1>
                 </div>
             </div>
-
+            <!-- TOOL LIST -->
             <div class="row">
-                <div class="col-md-4" ng-controller="ToolListController">
+
+                <div id="toolListCtr" class="col-md-4" ng-controller="ToolListController">
                     <h1>Tools List</h1>
-                    <h4>{{entry.data}}</h4>
-                    <ul>
-                        <li ng-repeat="tool in list">
-                            <span>{{tool.name}}</span>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li ng-repeat="phone in phones">
-                            <span>{{phone.name}}</span>
-                            <p>{{phone.snippet}}</p>
-                        </li>
-                    </ul>
+                    <h4>Shared Data: {{test}}</h4>
+                    <form role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="TODO">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <!--<h4>{{list}}</h4>-->
+                    <div class="btn-group-vertical" role="group">
+                        <button type="button" ng-click="toolClick(tool.id)" ng-repeat="tool in list" data-name="{{tool.name}}" class="btn btn-default">
+                            {{tool.id}} - {{tool.name}}
+                        </button>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <h1>Tool Details</h1>
+
+                <!-- TOOL DETAILS -->
+                <div  id="toolDetailsCtr" class="col-md-8" ng-controller="ToolDetailsController">
+                    <h1 class="text-center">Tool Details</h1>
+                    <h4>Shared Data: {{test}}</h4>
                 </div>
-                <div class="col-md-4">
-                    <h1>Col 3</h1>
-                </div>
+                <!--                <div class="col-md-4">
+                                    <h1>Col 3</h1>
+                                </div>-->
             </div>
 
         </div> <!-- END MAIN CONTAINER -->
@@ -86,6 +99,7 @@ ANGULAR FRONT END VIEW OF BTL
 
 
         <!-- INCLUDED JS -->
+        <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <!-- Angular -->
         <script type="text/javascript" src="angular/angular.js"></script>
