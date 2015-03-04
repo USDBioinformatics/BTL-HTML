@@ -12,7 +12,7 @@ btlServices.factory('ToolCount', function ($resource) {
 });
 
 btlServices.factory('BetsById', function ($resource) {
-    return $resource('http://localhost:8080/BTL-REST/resources/bets/:id',{},
+    return $resource('http://localhost:8080/BTL-REST/resources/bets/:id',
     { 
         get:{
             method: 'GET',

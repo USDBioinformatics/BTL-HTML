@@ -9,8 +9,11 @@
         <group name="Bio Tool Library">
             <file>file:/C:/Users/Tyler/Documents/GitHub/BTL-HTML/BTL-HTML/public_html/js/controllers.js</file>
             <file>file:/C:/Users/Tyler/Documents/GitHub/BTL-HTML/BTL-HTML/public_html/js/app.js</file>
-            <file>file:/C:/Users/Tyler/Documents/GitHub/BTL-HTML/BTL-HTML/public_html/js/services.js</file>
             <file>file:/C:/Users/Tyler/Documents/GitHub/BTL-HTML/BTL-HTML/public_html/index.html</file>
+            <file>file:/C:/Users/Tyler/Documents/GitHub/BTL-HTML/BTL-HTML/public_html/js/services.js</file>
+            <file>file:/C:/Users/Tyler/Documents/GitHub/BTL-HTML/BTL-HTML/public_html/templates/tools.html</file>
+            <file>file:/C:/Users/Tyler/Documents/GitHub/BTL-HTML/BTL-HTML/public_html/templates/tool-details.html</file>
+            <file>file:/C:/Users/Tyler/Documents/GitHub/BTL-HTML/BTL-HTML/public_html/angular/angular-ui-router.js</file>
         </group>
     </open-files>
 </project-private>
