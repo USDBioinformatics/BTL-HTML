@@ -11,8 +11,13 @@ btlServices.factory('ToolCount', function ($resource) {
     ); // Note the full endpoint address
 });
 
-btlServices.factory('ToolById', function ($resource) {
-    return $resource('http://localhost:8080/BTL-REST/resources/tools/:id'); // Note the full endpoint address
+btlServices.factory('BetsById', function ($resource) {
+    return $resource('http://localhost:8080/BTL-REST/resources/bets/:id',{},
+    { 
+        get:{
+            method: 'GET',
+            isArray:false}
+        });
 });
 
 btlServices.factory('SharedData', function () {

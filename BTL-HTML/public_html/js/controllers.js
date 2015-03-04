@@ -6,7 +6,7 @@ btlControllers.controller('ToolListController', function ($scope, ToolNames, Sha
     $scope.test = SharedData.getId();
     
     $scope.$watch('test', function(newValue, oldValue){
-        alert('ID CHANGED');
+//        alert('ID CHANGED');
         if (newValue !== oldValue) SharedData.setId(newValue);
     });
     
@@ -27,10 +27,23 @@ btlControllers.controller('ToolCountController', function ($scope, ToolCount) {
 //    });
 });
 
-btlControllers.controller('ToolDetailsController', function ($scope, SharedData) {
+btlControllers.controller('ToolDetailsController', function ($scope, SharedData, BetsById) {
         $scope.$watch(function () { return SharedData.getId(); }, function (newValue, oldValue) {
         if (newValue !== oldValue) $scope.test = newValue;
-    });
+//        alert(newValue);
+        BetsById.get({id: newValue}, function(response){
+            $scope.details = response;
+        });
+        
+        $scope.isBetsDisplayed = false;
+        $scope.showBets = function(){
+            $scope.isBetsDisplayed = true;
+        };
+//        var details = BetsById.get(function (){
+//            $scope.details = details;
+//        });
+//    });
+});
 });
 
 
