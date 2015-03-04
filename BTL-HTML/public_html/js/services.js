@@ -1,7 +1,7 @@
 var btlServices = angular.module('btlApp.services', ['ngResource']);
 
 btlServices.factory('ToolNames', function ($resource) {
-    return $resource('http://localhost:8080/BTL-REST/resources/tools/names'); // Note the full endpoint address
+    return $resource('http://osmonds.usd.edu/BTL-REST/resources/tools/names'); // Note the full endpoint address
 });
 
 btlServices.factory('ToolCount', function ($resource) {
@@ -12,7 +12,7 @@ btlServices.factory('ToolCount', function ($resource) {
 });
 
 btlServices.factory('BetsById', function ($resource) {
-    return $resource('http://localhost:8080/BTL-REST/resources/bets/:id',
+    return $resource('http://osmonds.usd.edu/BTL-REST/resources/bets/:id',
     { 
         get:{
             method: 'GET',
