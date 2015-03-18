@@ -46,7 +46,10 @@ btlControllers.controller('ToolDetailsController', function ($scope, SharedData,
 });
 });
 
-
+btlControllers.controller('SimilarToolsController', 
+  ['$scope', '$state', function($scope, $state) {
+    $scope.tool = {};
+}]);
 //function getToolDetails(id, $scope, SharedData) {
 //    alert("Getting Tool Details for ID =  " + id);
 //};
