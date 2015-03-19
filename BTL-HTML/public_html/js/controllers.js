@@ -11,12 +11,25 @@ btlControllers.controller('ToolListController', function ($scope, ToolNames, Sha
     });
     
     var entries = ToolNames.query(function () {
-        $scope.list = entries;
+        //get first 25 entries
+        //Entries is a JSON array of objects
+        var toolArray = [];
+        var tool;
+        for(i = 0; i < 1000; i++){
+            tool=entries[i];
+            console.log(tool.version);
+            toolArray[i] = tool;
+        }
+        $scope.list = toolArray;
 //        buildJson(entries);
     }); //query() returns all the entries
     $scope.toolClick = function (id) {
 //        getToolDetails(id);
         $scope.test = id;
+    };
+    
+   $scope.getMoreTools = function(){
+        alert("getting more tools");
     };
 });
 

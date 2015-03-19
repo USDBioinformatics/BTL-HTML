@@ -55,13 +55,17 @@ ANGULAR FRONT END VIEW OF BTL
         <!--        <div ui-view="viewA"></div>
                 <div ui-view="viewB"></div>-->
 
+        
+        <div id="wrap">
         <!-- BEGIN MAIN CONTENT -->
         <div class="container">
             <!-- UI-VIEW -->
             <div ui-view></div>
         </div> <!-- END MAIN CONTAINER -->
 
-
-
+    </div> <!-- END WRAP -->
+<!--    <footer class="footer" ui-view="footer">
+    </footer>-->
+<div ng-include src="'templates/footer.html'"></div>
     </body>
 </html>
