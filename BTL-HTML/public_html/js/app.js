@@ -8,6 +8,7 @@ btlApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
                     url: "/home",
                     views: {
                         '': {templateUrl: 'templates/partial-home.html'},
+                        'categories@home': {templateUrl: 'templates/categories.html'},
                         'list@home': {templateUrl: 'templates/tool-list.html'},
                         'details@home': {templateUrl: 'templates/tool-details.html'}
                     }
