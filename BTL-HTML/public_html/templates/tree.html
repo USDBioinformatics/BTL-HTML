@@ -1,0 +1,19 @@
+{{selectedNode}}
+<div id="toolListCtr"
+   treecontrol class="tree-classic"
+   tree-model="testNames"
+   options="treeOptions"
+   on-selection="showSelected(node)"
+   selected-node="node1"
+   ng-click="toolClick(node.id)">
+    
+   Tool: {{node.name}} - Id: {{node.id}}
+</div>
+
+
+<!--Test Displaying the ToolNames -- Can be deleted
+<div ng-repeat="tool in testNames">  Don't need ng-controller, it is defined in the app.js .state 
+    <div ng-repeat="(key, value) in tool">
+        {{key}} : {{value}}
+    </div>
+</div>-->
