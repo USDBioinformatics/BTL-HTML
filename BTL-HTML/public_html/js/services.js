@@ -3,6 +3,12 @@ var btlServices = angular.module('btlApp.services', ['ngResource']);
 btlServices.factory('ToolNames', function ($resource) {
     return $resource('http://localhost:8080/BTL-REST/resources/tools/names'); // Note the full endpoint address
 });
+btlServices.factory('BridgeList', function ($resource) {
+    return $resource('http://localhost:8080/BTL-REST/resources/bridges/list'); // Note the full endpoint address
+});
+btlServices.factory('RepoList', function ($resource) {
+    return $resource('http://localhost:8080/BTL-REST/resources/repos'); // Note the full endpoint address
+});
 
 btlServices.factory('ToolCount', function ($resource) {
     return $resource(
@@ -12,12 +18,7 @@ btlServices.factory('ToolCount', function ($resource) {
 });
 
 btlServices.factory('BetsById', function ($resource) {
-    return $resource('http://localhost:8080/BTL-REST/resources/bets/:id',
-    { 
-        get:{
-            method: 'GET',
-            isArray:false}
-        });
+    return $resource('http://localhost:8080/BTL-REST/resources/bets/:id')
 });
 
 btlServices.factory('SharedData', function () {
@@ -32,17 +33,3 @@ btlServices.factory('SharedData', function () {
         }
     };
 });
-
-
-//btlServices.service('sharedId', function(){
-//    var id = 'TEST ID !!!!!!';
-//    
-//    return {
-//        getId : function(){
-//            return id;
-//        },
-//        setId: function(value){
-//            id = value;
-//        }
-//    };
-//});

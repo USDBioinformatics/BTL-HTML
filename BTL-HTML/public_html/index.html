@@ -10,6 +10,8 @@ ANGULAR FRONT END VIEW OF BTL
 
         <!-- Included CSS -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="tree-control/css/tree-control.css">
+        <link rel="stylesheet" type="text/css" href="tree-control/css/tree-control-attribute.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <!-- INCLUDED JS -->
@@ -19,6 +21,7 @@ ANGULAR FRONT END VIEW OF BTL
         <script type="text/javascript" src="angular/angular.js"></script>
         <script type="text/javascript" src="angular/angular-ui-router.js"></script>
         <script type="text/javascript" src="angular/angular-resource.min.js"></script>
+        <script type="text/javascript" src="tree-control/angular-tree-control.js"></script>
         <!-- INCLUDED JS -->
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/services.js"></script>
@@ -43,9 +46,11 @@ ANGULAR FRONT END VIEW OF BTL
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a ui-sref="home">Home </a></li>
+                        <li><a ui-sref="repos">Repos </a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a ui-sref="about">About</a></li>
+                        <li><a ui-sref="contact">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
