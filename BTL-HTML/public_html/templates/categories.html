@@ -1,0 +1,10 @@
+<div class="row" ng-controller="CategoryController">
+    <div class="col-md-12">
+        <h1>Categories</h1>
+        <ul ng-repeat="category in categories">
+            <li ng-repeat="(key, val) in category">
+                {{key}}: {{val}}
+            </li>
+        </ul>
+    </div>
+</div>

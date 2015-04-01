@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div  id="toolDetailsCtr" ng-show="tool" ng-controller="ToolDetailsController">
+    <h1 class="text-center">Tool Details</h1>
+    <h4>Tool ID: {{tool}}</h4>
+
+    <p>Tool Name: {{details.name}}</p>
+    <p>Tool Version: {{details.version}}</p>
+    <p>Tool Description: {{details.description}}</p>
+    <p>Tool Summary: {{details.summary}}</p>
+
+    <button type="button" ng-click="showBets()" class="btn btn-danger">Show Bets</button>
+    <div ng-show="isBetsDisplayed">
+        <h2>BETS</h2>
+        <p>{{details}}</p>
+    </div>
+</div>
