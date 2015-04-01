@@ -49,6 +49,10 @@ btlControllers.controller('BridgeListController', function ($scope, BridgeList) 
 
 btlControllers.controller('TreeController', function ($scope, ToolNames, SharedData) {
     $scope.tool = SharedData.getId();
+    
+    $scope.showSelected = function(sel) {
+         $scope.selectedNode = sel;
+     };
 
     $scope.$watch('tool', function (newValue, oldValue) {
         alert('ID CHANGED');
@@ -75,7 +79,7 @@ btlControllers.controller('TreeController', function ($scope, ToolNames, SharedD
     });
 
     $scope.toolClick = function (id) {
-        alert(id);
+//        alert($scope.selectedNode);
         $scope.tool = id;
     };
     $scope.dataForTheTree =
