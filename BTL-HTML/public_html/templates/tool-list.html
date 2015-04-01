@@ -1,0 +1,18 @@
+<div id="toolListCtr" ng-controller="ToolListController">
+    <h1>Tools List</h1>
+    <h4>Shared Data: {{test}}</h4>
+    <form role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="query" placeholder="Search Tools">
+        </div>
+    </form>
+    <div class="btn-group-vertical" role="group">
+        <button type="button" ng-click="toolClick(tool.id)" ng-repeat="tool in list | filter:{name:query} | orderBy: 'name'"  data-name="{{tool.name}}" class="btn btn-default">
+            <!--{{tool.id}} -->{{tool.name}}
+        </button>
+    </div>
+    <div class="clearfix"></div>
+    <button type="button" ng-click="getMoreTools()"class="btn btn-danger center-block">
+            View More Tools
+        </button>
+</div>
