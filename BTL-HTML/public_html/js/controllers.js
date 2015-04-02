@@ -31,13 +31,6 @@ btlControllers.controller('ToolListController', function ($scope, ToolNames, Sha
         $scope.tool = id;
     };
 
-
-
-
-    //Helperish Methods
-    $scope.getMoreTools = function () {
-        alert("getting more tools");
-    };
 });
 
 
@@ -49,13 +42,14 @@ btlControllers.controller('BridgeListController', function ($scope, BridgeList) 
 
 btlControllers.controller('TreeController', function ($scope, ToolNames, SharedData) {
     $scope.tool = SharedData.getId();
-    
-    $scope.showSelected = function(sel) {
-         $scope.selectedNode = sel;
-     };
+
+    $scope.showSelected = function (sel) {
+        $scope.selectedNode = sel;
+        $scope.tool = sel;
+    };
 
     $scope.$watch('tool', function (newValue, oldValue) {
-        alert('ID CHANGED');
+//        alert('ID CHANGED');
         if (newValue !== oldValue)
             SharedData.setId(newValue);
     });
@@ -79,7 +73,7 @@ btlControllers.controller('TreeController', function ($scope, ToolNames, SharedD
     });
 
     $scope.toolClick = function (id) {
-//        alert($scope.selectedNode);
+        alert($scope.selectedNode);
         $scope.tool = id;
     };
     $scope.dataForTheTree =
@@ -102,6 +96,21 @@ btlControllers.controller('TreeController', function ($scope, ToolNames, SharedD
             ];
 });
 
+btlControllers.controller('ToolDetailsController', function ($scope, SharedData, BetsById) {
+    $scope.$watch(function () {
+        return SharedData.getId();
+    }, function (newValue, oldValue) {
+        if (newValue !== oldValue)
+            $scope.tool = newValue;
+        BetsById.get({id: newValue.id}, function (response) {
+            $scope.details = response;
+        });
+        $scope.isBetsDisplayed = false;
+        $scope.showBets = function () {
+            $scope.isBetsDisplayed = true;
+        };
+    });
+});
 
 btlControllers.controller('RepoListController', function ($scope, RepoList) {
     var entries = RepoList.query(function () {
@@ -117,21 +126,8 @@ btlControllers.controller('ToolCountController', function ($scope, ToolCount) {
 //        $scope.count = result.size;
 //    });
 });
-btlControllers.controller('ToolDetailsController', function ($scope, SharedData, BetsById) {
-    $scope.$watch(function () {
-        return SharedData.getId();
-    }, function (newValue, oldValue) {
-        if (newValue !== oldValue)
-            $scope.tool = newValue;
-        BetsById.get({id: newValue}, function (response) {
-            $scope.details = response;
-        });
-        $scope.isBetsDisplayed = false;
-        $scope.showBets = function () {
-            $scope.isBetsDisplayed = true;
-        };
-    });
-});
+
+
 btlControllers.controller('SimilarToolsController',
         ['$scope', '$state', function ($scope, $state) {
                 $scope.tool = {};

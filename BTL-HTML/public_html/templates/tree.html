@@ -1,11 +1,11 @@
 {{selectedNode}}
+Tool:{{tool.id}}
 <div id="toolListCtr"
    treecontrol class="tree-classic"
    tree-model="testNames"
    options="treeOptions"
    on-selection="showSelected(node)"
-   selected-node="node1"
-   ng-click="toolClick(node.id)">
+   selected-node="node1"">
     
    Tool: {{node.name}} - Id: {{node.id}}
 </div>
