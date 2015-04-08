@@ -2,7 +2,6 @@ var btlApp = angular.module('btlApp', ['ui.router', 'btlApp.services', 'btlApp.c
 
 btlApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/home');
-
         $stateProvider
                 .state('home', {
                     url: "/home",

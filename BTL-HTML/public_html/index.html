@@ -10,6 +10,7 @@ ANGULAR FRONT END VIEW OF BTL
 
         <!-- Included CSS -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" id="font-awesome-css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" media="screen">
         <link rel="stylesheet" type="text/css" href="tree-control/css/tree-control.css">
         <link rel="stylesheet" type="text/css" href="tree-control/css/tree-control-attribute.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -60,17 +61,38 @@ ANGULAR FRONT END VIEW OF BTL
         <!--        <div ui-view="viewA"></div>
                 <div ui-view="viewB"></div>-->
 
-        
-        <div id="wrap">
-        <!-- BEGIN MAIN CONTENT -->
-        <div class="container">
-            <!-- UI-VIEW -->
-            <div ui-view></div>
-        </div> <!-- END MAIN CONTAINER -->
 
-    </div> <!-- END WRAP -->
-<!--    <footer class="footer" ui-view="footer">
-    </footer>-->
-<div ng-include src="'templates/footer.html'"></div>
+        <div id="wrap">
+            <!-- BEGIN MAIN CONTENT -->
+            <div class="container">
+                <!-- UI-VIEW -->
+                <div ui-view></div>
+            </div> <!-- END MAIN CONTAINER -->
+            <a href="#" class="back-to-top" style="display: inline;">
+                <i class="fa fa-arrow-circle-up"></i>
+            </a>
+            <script>
+                jQuery(document).ready(function () {
+                    var offset = 250;
+                    var duration = 300;
+                    jQuery(window).scroll(function () {
+                        if (jQuery(this).scrollTop() > offset) {
+                            jQuery('.back-to-top').fadeIn(duration);
+                        } else {
+                            jQuery('.back-to-top').fadeOut(duration);
+                        }
+                    });
+
+                    jQuery('.back-to-top').click(function (event) {
+                        event.preventDefault();
+                        jQuery('html, body').animate({scrollTop: 0}, duration);
+                        return false;
+                    })
+                });
+            </script>
+        </div> <!-- END WRAP -->
+        <!--    <footer class="footer" ui-view="footer">
+            </footer>-->
+        <div ng-include src="'templates/footer.html'"></div>
     </body>
 </html>

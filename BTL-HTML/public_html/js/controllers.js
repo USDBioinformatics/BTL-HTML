@@ -1,3 +1,5 @@
+/* global toolArray */
+
 var btlControllers = angular.module('btlApp.controllers', ['btlApp.services']);
 
 btlControllers.controller('ToolListController', function ($scope, ToolNames, SharedData) {
@@ -40,19 +42,63 @@ btlControllers.controller('BridgeListController', function ($scope, BridgeList) 
     });
 });
 
-btlControllers.controller('TreeController', function ($scope, ToolNames, SharedData) {
+btlControllers.controller('TreeController', function ($scope, ToolNames, SharedData, $q) {
     $scope.tool = SharedData.getId();
+    $scope.tools;
+    var toolList = [];
 
+    var defer = $q.defer();
+    defer.promise.then(function () { //going to happen in the future
+        toolList = ToolNames.query(function () {
+            $scope.tools = toolList;
+        });
+    });
+
+    defer.resolve(); //when object is done being deferred, it will fire of the promise.then
+
+    $scope.$watch('tools', function (newValue, oldValue) {
+        if (newValue !== oldValue) {
+            toolList = newValue;
+
+            var toolSetOne = [];
+            for (i = 0; i < 1500; i++) {
+                toolSetOne.push(toolList[i]);
+            }
+            console.log("Set One " + JSON.stringify(toolSetOne));
+
+            var toolSetTwo = [];
+            for (i = 1500; i < 3500; i++) {
+                toolSetTwo.push(toolList[i]);
+            }
+
+            var toolSetThree = [];
+            for (i = 3500; i < toolList.length; i++) {
+                toolSetThree.push(toolList[i]);
+            }
+
+
+            $scope.dataForTheTree =
+                    [
+                        {"name": "Bioinformatics Application", "children": toolSetOne},
+                        {"name": "Bioinformatics Method", "children": toolSetTwo},
+                        {"name": "Bological Domain", "children": toolSetThree}
+                    ];
+        }
+    });
+
+    //watches for the tool to be clicked and sets it's id and shows tool details
+    $scope.$watch('tool', function (newValue, oldValue) {
+        if (newValue !== oldValue) {
+            SharedData.setId(newValue);
+        }
+    });
+
+    //on tool click, update the selected tool
     $scope.showSelected = function (sel) {
         $scope.selectedNode = sel;
         $scope.tool = sel;
     };
 
-    $scope.$watch('tool', function (newValue, oldValue) {
-//        alert('ID CHANGED');
-        if (newValue !== oldValue)
-            SharedData.setId(newValue);
-    });
 
     $scope.treeOptions = {
         nodeChildren: "children",
@@ -68,35 +114,19 @@ btlControllers.controller('TreeController', function ($scope, ToolNames, SharedD
             labelSelected: "a8"
         }
     };
-    var entries = ToolNames.query(function () {
-        $scope.testNames = entries;
-    });
 
-    $scope.toolClick = function (id) {
-        alert($scope.selectedNode);
-        $scope.tool = id;
-    };
-    $scope.dataForTheTree =
-            [
-                {"name": "Bioinformatics Application", "children": [
-                        {"name": "Abyss", "children": []},
-                        {"name": "Gary", "children": [
-                                {"name": "Jenifer", "children": [
-                                        {"name": "Dani", "children": []},
-                                        {"name": "Max", "children": []}
-                                    ]}
-                            ]}
-                    ]},
-                {"name": "Bioinformatics Method", "children": [
-                        {"name": "Alignr", "children": []}
-                    ]},
-                {"name": "Bological Domain", "children": [
-                        {"name": "Blast", "children": []}
-                    ]}
-            ];
+
+
+
+
 });
 
-btlControllers.controller('ToolDetailsController', function ($scope, SharedData, BetsById) {
+btlControllers.controller('ToolDetailsController', function ($scope, SharedData, BetsById, ToolIcon) {
+    $scope.toolIcon ="test";
+//     var toolIcon = ToolIcon.query(function () {
+//            $scope.toolIcon = toolIcon;
+//            alert(toolIcon);
+//        });
     $scope.$watch(function () {
         return SharedData.getId();
     }, function (newValue, oldValue) {

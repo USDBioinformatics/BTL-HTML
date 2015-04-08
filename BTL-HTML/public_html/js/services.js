@@ -19,6 +19,10 @@ btlServices.factory('BetsById', function ($resource) {
             isArray:false}
         });
 });
+btlServices.factory('ToolIcon', function ($resource) {
+    return $resource('http://localhost:8080/BTL-REST/resources/tools/icon/1'); // Note the full endpoint address
+});
+
 
 btlServices.factory('SharedData', function () {
     var data = {id: ''};
