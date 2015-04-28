@@ -5,11 +5,15 @@ btlServices.factory('ToolNames', function ($resource) {
 });
 
 btlServices.factory('ToolCount', function ($resource) {
-    return $resource(
-            'http://localhost:8080/BTL-REST/resources/tools/count',
-            {'query': {method: 'GET', isArray: false}}
-    ); // Note the full endpoint address
-});
+    return $resource('http://localhost:8080/BTL-REST/resources/tools/count');
+//        { 
+//        get:{
+//            method: 'GET',
+//            isArray:false,
+//            responseType:"text"
+//        }
+//        });
+});// Note the full endpoint address
 
 btlServices.factory('BetsById', function ($resource) {
     return $resource('http://osmonds.usd.edu/BTL-REST/resources/bets/:id',
@@ -19,8 +23,17 @@ btlServices.factory('BetsById', function ($resource) {
             isArray:false}
         });
 });
+
+btlServices.factory('RepoList', function ($resource) {
+    return $resource('http://localhost:8080/BTL-REST/resources/repos');
+});
+
 btlServices.factory('ToolIcon', function ($resource) {
-    return $resource('http://localhost:8080/BTL-REST/resources/tools/icon/1'); // Note the full endpoint address
+    return $resource('http://localhost:8080/BTL-REST/resources/tools/icon/1');
+});
+
+btlServices.factory('BridgeList', function ($resource) {
+    return $resource('http://localhost:8080/BTL-REST/resources/bridges');
 });
 
 

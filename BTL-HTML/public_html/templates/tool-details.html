@@ -1,26 +1,27 @@
 <div  id="toolDetailsCtr" ng-show="tool" ng-controller="ToolDetailsController">
-    <h1 class="text-center">Tool Details</h1>
-    <h1>Test Icon: {{toolIcon}}</h1>
-    <h4>Tool ID: {{tool.id}}</h4>
-    <img src="http://localhost:8383/BTL-HTML/imgs/icons/tool-icon-1.jpg">
-    <p>Tool Name: {{details.name}}</p>
-    <p>Tool Version: {{details.version}}</p>
-    <p>Tool Description: {{details.description}}</p>
+    <h1 class="toolHdr text-center">{{tool.id}} - {{details.name}}</h1>
+    <img src="imgs/icons/Tool-Icon-1.jpg">
+    <p ng-if="details.name">Tool Name: {{details.name}}</p>
+    <p ng-if="details.version">Tool Version: {{details.version}}</p>
+    <p ng-if="details.description">Tool Description: {{details.description}}</p>
     <p>Tool Summary: {{details.summary}}</p>
 
     <button type="button" ng-click="showBets()" class="btn btn-danger">Show Bets</button>
     <div ng-show="isBetsDisplayed">
         <h2>BETS</h2>
-        <h2>{{details.name}}</h2>
-        <h2>{{details.display_name}}</h2>
-        <h2>{{details.version}}</h2>
         <ul>
             <li ng-repeat="(key, value) in details">
                 {{key}} - {{value}}
             </li>
         </ul>
-        
         <h2>BETS JSON</h2>
         {{details}}
     </div>
+    <div class="col-md-12" ng-controller="SimilarToolsController">
+        <h1>Similar Tools</h1>
+        <div ng-repeat="tool in similarTools">
+            <h4>{{tool.ID}} - {{tool.name}}</h4>
+        </div>
+    </div>
 </div>
+

@@ -9,8 +9,9 @@ btlApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,
                         '': {templateUrl: 'templates/partial-home.html'},
                         'list@home': {templateUrl: 'templates/tool-list.html'},
                         'details@home': {templateUrl: 'templates/tool-details.html'},
-                        'bridges@home': {templateUrl: 'templates/bridge-list.html'},
-                        'tree@home': {templateUrl: 'templates/tree.html', controller: 'TreeController'}
+                        'tree@home': {templateUrl: 'templates/tree.html', controller: 'TreeController'},
+                        'count@home': {templateUrl: 'templates/tool-count.html', controller: 'ToolCountController'},
+                        'bridges@home': {templateUrl: 'templates/bridge-list.html', controller: 'BridgeListController'}
                     }
                 })
                 // HOME STATES AND NESTED VIEWS ========================================

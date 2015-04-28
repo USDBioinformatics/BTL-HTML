@@ -1,5 +1,3 @@
-/* global toolArray */
-
 var btlControllers = angular.module('btlApp.controllers', ['btlApp.services']);
 
 btlControllers.controller('ToolListController', function ($scope, ToolNames, SharedData) {
@@ -11,19 +9,10 @@ btlControllers.controller('ToolListController', function ($scope, ToolNames, Sha
             SharedData.setId(newValue);
     });
 
-    var entries = ToolNames.query(function () {
+    var entries = ToolNames.query(function () {//query() returns all the entries
         //Entries is a JSON array of objects
-
-        //Test adding tools to array to display incrementally, shows the first 1000
-//        var toolArray = [];
-//        var tool;
-//        for (i = 0; i < 1000; i++) {
-//            tool = entries[i];
-//            toolArray[i] = tool;
-//        }
-//        $scope.list = toolArray;
         $scope.list = entries; //shows all tools, array of Objects
-    }); //query() returns all the entries
+    });
 
     /*
      * onToolClick Function - Gets ID of Tool
@@ -33,13 +22,6 @@ btlControllers.controller('ToolListController', function ($scope, ToolNames, Sha
         $scope.tool = id;
     };
 
-});
-
-
-btlControllers.controller('BridgeListController', function ($scope, BridgeList) {
-    var entries = BridgeList.query(function () {
-        $scope.bridges = entries;
-    });
 });
 
 btlControllers.controller('TreeController', function ($scope, ToolNames, SharedData, $q) {
@@ -99,7 +81,6 @@ btlControllers.controller('TreeController', function ($scope, ToolNames, SharedD
         $scope.tool = sel;
     };
 
-
     $scope.treeOptions = {
         nodeChildren: "children",
         dirSelectable: true,
@@ -114,15 +95,10 @@ btlControllers.controller('TreeController', function ($scope, ToolNames, SharedD
             labelSelected: "a8"
         }
     };
-
-
-
-
-
 });
 
 btlControllers.controller('ToolDetailsController', function ($scope, SharedData, BetsById, ToolIcon) {
-    $scope.toolIcon ="test";
+    $scope.toolIcon = "test";
 //     var toolIcon = ToolIcon.query(function () {
 //            $scope.toolIcon = toolIcon;
 //            alert(toolIcon);
@@ -151,14 +127,36 @@ btlControllers.controller('RepoListController', function ($scope, RepoList) {
 
 
 btlControllers.controller('ToolCountController', function ($scope, ToolCount) {
-//    var result = ToolCount.query(function () {
-//        alert("Count= " + result.size());
-//        $scope.count = result.size;
-//    });
+    var result = ToolCount.query(function () {
+        $scope.count = result;
+    });
 });
 
+btlControllers.controller('BridgeListController', function ($scope, BridgeList) {
+    var entries = BridgeList.query(function () {
+        $scope.bridges = entries;
+    });
+});
 
-btlControllers.controller('SimilarToolsController',
-        ['$scope', '$state', function ($scope, $state) {
-                $scope.tool = {};
-            }]);
+btlControllers.controller('SimilarToolsController', function ($scope) {
+    var tools = [
+        {
+            'ID': 1,
+            'name': 'SimTool 1'
+        },
+        {
+            'ID': 2,
+            'name': 'SimTool 2'
+        },
+        {
+            'ID': 3,
+            'name': 'SimTool 3'
+        },
+        {
+            'ID': 4,
+            'name': 'SimTool 4'
+        }
+
+    ];
+    $scope.similarTools = tools;
+});
