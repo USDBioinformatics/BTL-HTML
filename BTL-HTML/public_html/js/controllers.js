@@ -57,7 +57,9 @@ btlControllers.controller('TreeController', function ($scope, ToolNames, SharedD
             for (i = 3500; i < toolList.length; i++) {
                 toolSetThree.push(toolList[i]);
             }
-
+            toolSetOne.sort();
+            toolSetTwo.sort();
+            toolSetThree.sort();
 
             $scope.dataForTheTree =
                     [
